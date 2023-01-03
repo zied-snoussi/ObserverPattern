@@ -2,7 +2,7 @@
 ## :speech_balloon: Intent
 ***Observer*** is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
 
-![image](https://user-images.githubusercontent.com/74665047/210435787-c97dcd8f-9641-4805-b55d-839065ea0a61.png)
+![image](https://user-images.githubusercontent.com/74665047/210447316-e1817262-9fe2-435d-b9b5-4f13126f95fe.png)
 
 ## :frowning_face: Problem
 Imagine that you have two types of objects: a Customer and a Store. The customer is very interested in a particular brand of product (say, it’s a new model of the iPhone) which should become available in the store very soon.
