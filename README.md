@@ -1,10 +1,10 @@
 # Observer
-## Intent
+## :speech_balloon: Intent
 ***Observer*** is a behavioral design pattern that lets you define a subscription mechanism to notify multiple objects about any events that happen to the object they’re observing.
 
 ![image](https://user-images.githubusercontent.com/74665047/210435787-c97dcd8f-9641-4805-b55d-839065ea0a61.png)
 
-## Problem
+## :frowning_face: Problem
 Imagine that you have two types of objects: a Customer and a Store. The customer is very interested in a particular brand of product (say, it’s a new model of the iPhone) which should become available in the store very soon.
 
 The customer could visit the store every day and check product availability. But while the product is still en route, most of these trips would be pointless.
@@ -15,7 +15,7 @@ On the other hand, the store could send tons of emails (which might be considere
 
 It looks like we’ve got a conflict. Either the customer wastes time checking product availability or the store wastes resources notifying the wrong customers.
 
-## Solution
+## :blush: Solution
 The object that has some interesting state is often called subject, but since it’s also going to notify other objects about the changes to its state, we’ll call it publisher. All other objects that want to track changes to the publisher’s state are called subscribers.
 
 The Observer pattern suggests that you add a subscription mechanism to the publisher class so individual objects can subscribe to or unsubscribe from a stream of events coming from that publisher. Fear not! Everything isn’t as complicated as it sounds. In reality, this mechanism consists of 1) an array field for storing a list of references to subscriber objects and 2) several public methods which allow adding subscribers to and removing them from that list.
@@ -32,14 +32,14 @@ That’s why it’s crucial that all subscribers implement the same interface an
 
 If your app has several different types of publishers and you want to make your subscribers compatible with all of them, you can go even further and make all publishers follow the same interface. This interface would only need to describe a few subscription methods. The interface would allow subscribers to observe publishers’ states without coupling to their concrete classes.
 
-## Real-World 
+## :car:  Real-World 
 ![image](https://user-images.githubusercontent.com/74665047/210436320-e07628f6-875c-4b7f-bf47-fe24bcd93731.png)
 
 If you subscribe to a newspaper or magazine, you no longer need to go to the store to check if the next issue is available. Instead, the publisher sends new issues directly to your mailbox right after publication or even in advance.
 
 The publisher maintains a list of subscribers and knows which magazines they’re interested in. Subscribers can leave the list at any time when they wish to stop the publisher sending new magazine issues to them.
 
-## Structure
+## :trident: Structure
 ![image](https://user-images.githubusercontent.com/74665047/210439969-e38ca98d-c5c5-4c51-b10e-b4b3b0d10e96.png)
 
 1. The Publisher issues events of interest to other objects. These events occur when the publisher changes its state or executes some behaviors. Publishers contain a subscription infrastructure that lets new subscribers join and current subscribers leave the list
@@ -49,7 +49,7 @@ The publisher maintains a list of subscribers and knows which magazines they’r
 5. Usually, subscribers need some contextual information to handle the update correctly. For this reason, publishers often pass some context data as arguments of the notification method. The publisher can pass itself as an argument, letting subscriber fetch any required data directly.
 6. The Client creates publisher and subscriber objects separately and then registers subscribers for publisher updates.
 
-## Pseudocode
+## :diamond_shape_with_a_dot_inside: Pseudocode
 In this example, the Observer pattern lets the text editor object notify other service objects about changes in its state.
 
 ![image](https://user-images.githubusercontent.com/74665047/210440406-00a45146-aadf-48b5-84dc-7bd602ad4b5e.png)
@@ -149,7 +149,7 @@ class Application is
             "Someone has changed the file: %s")
         editor.events.subscribe("save", emailAlerts)
 ```
-##  Applicability
+##  :bulb: Applicability
 ### Use the Observer pattern when changes to the state of one object may require changing other objects, and the actual set of objects is unknown beforehand or changes dynamically.
 
 You can often experience this problem when working with classes of the graphical user interface. For example, you created custom button classes, and you want to let the clients hook some custom code to your buttons so that it fires whenever a user presses a button.
@@ -160,7 +160,7 @@ The Observer pattern lets any object that implements the subscriber interface su
 
 The subscription list is dynamic, so subscribers can join or leave the list whenever they need to.
 
-## How to Implement
+## :keyboard: How to Implement
 
 1. Look over your business logic and try to break it down into two parts: the core functionality, independent from other code, will act as the publisher; the rest will turn into a set of subscriber classes.
 
@@ -180,7 +180,7 @@ But there’s another option. Upon receiving a notification, the subscriber can 
 
 7. The client must create all necessary subscribers and register them with proper publishers
 
-## Pros and Cons
+## :balance_scale: Pros and Cons
 
 :heavy_check_mark: Open/Closed Principle. You can introduce new subscriber classes without having to change the publisher’s code (and vice versa if there’s a publisher interface).
 
@@ -188,7 +188,7 @@ But there’s another option. Upon receiving a notification, the subscriber can 
 
 :x: Subscribers are notified in random order.
 
-## Relations with Other Patterns
+## :arrows_counterclockwise: Relations with Other Patterns
 
 - Chain of Responsibility, Command, Mediator and Observer address various ways of connecting senders and receivers of requests:
   
